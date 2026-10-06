@@ -1,0 +1,2443 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    overflow: hidden;
+}
+
+
+
+/* =====================================================
+   DECORATIVE SIDE TEXT
+   HUMAYRA MIM + EN BN BROXH
+===================================================== */
+
+#decorativeTextLayer {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    pointer-events: none;
+    user-select: none;
+
+    z-index: 2;
+}
+
+
+.decorative-bg-text {
+    position: absolute;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    text-shadow:
+        0 2px 8px rgba(100, 20, 60, 0.20);
+
+    pointer-events: none;
+    user-select: none;
+}
+
+
+
+/* =====================================================
+   GENERAL PAGE
+===================================================== */
+
+.page {
+    width: 100%;
+    height: 100vh;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 0;
+}
+
+
+.page.active {
+    display: flex;
+}
+
+
+
+/* =====================================================
+   PAGE 1
+===================================================== */
+
+#page1 {
+    background:
+        radial-gradient(
+            circle at top,
+            #ffe3ed 0%,
+            #ffbfd4 40%,
+            #ff91b5 75%,
+            #ff709f 100%
+        );
+}
+
+
+.first-page {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+
+/* =====================================================
+   HUMAYRA MIM
+===================================================== */
+
+.HUMAYRA MIM {
+    color: white;
+
+    font-size: 82px;
+
+    font-weight: bold;
+
+    letter-spacing: 16px;
+
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 4px 15px rgba(130, 20, 70, 0.3);
+
+    animation:
+        softGlow 2.5s infinite alternate;
+}
+
+
+@keyframes softGlow {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.04);
+    }
+
+}
+
+
+
+/* =====================================================
+   FIRST LETTER
+===================================================== */
+
+.letter-note {
+    width: 390px;
+
+    max-width: 90%;
+
+    background: #fffaf2;
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 15px 35px rgba(100, 20, 60, 0.2);
+
+    transform: rotate(-1deg);
+
+    margin-bottom: 22px;
+
+    overflow: hidden;
+
+    animation:
+        letterAppear 1s ease;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.letter-top {
+    background: #f4d5df;
+
+    color: #8d5365;
+
+    padding: 9px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+.letter-body {
+    padding: 20px 25px 17px;
+
+    text-align: left;
+
+    color: #57444a;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+.letter-body p {
+    margin-bottom: 9px;
+}
+
+
+.dear {
+    color: #b73d68;
+
+    font-size: 17px;
+
+    font-weight: bold;
+}
+
+
+.signature {
+    color: #b73d68;
+
+    text-align: right;
+
+    font-style: italic;
+
+    font-size: 16px;
+}
+
+
+
+/* =====================================================
+   ENVELOPE
+===================================================== */
+
+.envelope-container {
+    cursor: pointer;
+
+    margin-top: 2px;
+
+    z-index: 10;
+}
+
+
+.envelope {
+    width: 280px;
+    height: 180px;
+
+    position: relative;
+
+    transition: 0.4s;
+}
+
+
+.envelope:hover {
+    transform: translateY(-7px);
+}
+
+
+.envelope-back {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background: #e84779;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 15px 30px rgba(150, 20, 70, 0.25);
+}
+
+
+.inside-letter {
+    position: absolute;
+
+    width: 240px;
+    height: 145px;
+
+    left: 20px;
+    top: 10px;
+
+    background: white;
+
+    border-radius: 5px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 40px;
+
+    z-index: 2;
+
+    transition: 1s;
+}
+
+
+.envelope-front {
+    position: absolute;
+
+    width: 0;
+    height: 0;
+
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+
+    border-bottom: 100px solid #f95b8c;
+
+    bottom: 0;
+
+    z-index: 4;
+}
+
+
+.flap {
+    position: absolute;
+
+    width: 0;
+    height: 0;
+
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+
+    border-top: 105px solid #ff80a6;
+
+    top: 0;
+
+    transform-origin: top;
+
+    transition: 1s;
+
+    z-index: 5;
+}
+
+
+.seal {
+    position: absolute;
+
+    width: 52px;
+    height: 52px;
+
+    background: #d91d5b;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 22px;
+
+    left: 114px;
+    top: 72px;
+
+    z-index: 6;
+
+    transition: 0.5s;
+
+    box-shadow:
+        0 5px 15px rgba(130, 0, 50, 0.3);
+}
+
+
+.envelope.open .flap {
+    transform: rotateX(180deg);
+
+    z-index: 1;
+}
+
+
+.envelope.open .seal {
+    opacity: 0;
+}
+
+
+.envelope.open .inside-letter {
+    transform: translateY(-100px);
+
+    z-index: 7;
+}
+
+
+.click-text {
+    color: white;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+    margin-top: 14px;
+
+    animation:
+        pulse 1.5s infinite;
+}
+
+
+
+/* =====================================================
+   STORY / CONFESSION BACKGROUND
+===================================================== */
+
+.story-page {
+    background:
+        radial-gradient(
+            circle at top,
+            #ffdce8 0%,
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            #f45d78,
+            #f96fa8
+        );
+
+    padding: 20px;
+
+    overflow-y: auto;
+}
+
+
+
+/* =====================================================
+   STORY CARD
+===================================================== */
+
+.story-card {
+    width: 92%;
+
+    max-width: 650px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background:
+        rgba(255, 255, 255, 0.97);
+
+    padding: 38px 35px;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.22);
+
+    animation:
+        cardIn 0.7s ease;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.story-card::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+.story-card::-webkit-scrollbar-thumb {
+    background: #e783a5;
+
+    border-radius: 10px;
+}
+
+
+.confession-card {
+    max-width: 700px;
+}
+
+
+
+/* =====================================================
+   STORY GIF / IMAGE
+===================================================== */
+
+.story-emoji {
+    width: 300px;
+    height: 300px;
+
+    margin: 0 auto 8px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    animation:
+        floating 2s infinite ease-in-out;
+}
+
+
+.story-emoji img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+#storyEmojiFallback {
+    font-size: 110px;
+}
+
+
+
+/* =====================================================
+   STORY ELEMENTS
+===================================================== */
+
+.story-number {
+    color: #df1559;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 8px;
+}
+
+
+.story-card h2 {
+    color: #df1559;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 30px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 25px;
+}
+
+
+
+/* =====================================================
+   STORY TEXT
+===================================================== */
+
+.story-text {
+    color: #3f3438;
+}
+
+
+.main-line {
+    font-size: 18px;
+
+    line-height: 1.65;
+
+    font-weight: 600;
+
+    color: #303030;
+
+    margin-bottom: 7px;
+}
+
+
+.bangla {
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    font-weight: 500;
+
+    color: #bd315f;
+
+    background: #fff0f5;
+
+    padding: 8px 13px;
+
+    border-radius: 10px;
+
+    margin-bottom: 22px;
+
+    display: inline-block;
+
+    max-width: 100%;
+
+    box-shadow:
+        0 3px 10px rgba(200, 60, 110, 0.06);
+}
+
+
+#extraStoryText .main-line {
+    margin-top: 8px;
+}
+
+
+#extraStoryText .bangla {
+    color: #b83268;
+
+    background: #ffedf4;
+}
+
+
+
+/* =====================================================
+   CONFESSION
+===================================================== */
+
+.know-text {
+    color: #df1559;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin: 20px 0 15px;
+}
+
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.story-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 25px;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+.story-btn {
+    border: none;
+
+    background: #df1559;
+
+    color: white;
+
+    padding: 14px 24px;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+
+    font-family: Arial, sans-serif;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 8px 18px rgba(223, 21, 89, 0.25);
+}
+
+
+.story-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+
+    background: #b80f49;
+}
+
+
+.secondary-btn {
+    background: #f2e7eb;
+
+    color: #8b5365;
+
+    box-shadow: none;
+}
+
+
+.secondary-btn:hover {
+    background: #ead5dc;
+
+    color: #6d3d4e;
+}
+
+
+
+/* =====================================================
+   YES / NO
+===================================================== */
+
+.yes-btn {
+    background: #df1559;
+}
+
+
+.no-btn {
+    background: #20c997 !important;
+
+    color: #ffffff !important;
+
+    border: 2px solid #0b9f72 !important;
+
+    box-shadow:
+        0 8px 25px
+        rgba(32, 201, 151, 0.55) !important;
+}
+
+
+.no-btn:hover {
+    background: #16b486 !important;
+
+    color: white !important;
+}
+
+
+
+/* =====================================================
+   FINAL QUESTION
+===================================================== */
+
+.final-question {
+    background:
+        radial-gradient(
+            circle at center,
+            #24131d,
+            #080609 70%
+        ) !important;
+
+    color: white;
+}
+
+
+.final-question .story-card {
+    background: transparent;
+
+    box-shadow: none;
+
+    color: white;
+}
+
+
+.final-question .story-card h2 {
+    color: white;
+
+    font-size: 42px;
+}
+
+
+.final-question .main-line {
+    color: white;
+
+    font-size: 27px;
+}
+
+
+.final-question .bangla {
+    color: #ffb6cd;
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    font-size: 18px;
+}
+
+
+.final-question .story-number {
+    color: #ff9fbe;
+}
+
+
+
+/* =====================================================
+   WAIT SCREEN
+===================================================== */
+
+.wait-screen {
+    background: #050505 !important;
+
+    color: white;
+}
+
+
+.wait-screen .story-card {
+    background: transparent;
+
+    box-shadow: none;
+}
+
+
+.wait-screen h2 {
+    color: white !important;
+
+    font-size: 35px !important;
+}
+
+
+
+/* =====================================================
+   ALHAMDULILLAH
+===================================================== */
+
+.alham-page {
+    background:
+        radial-gradient(
+            circle,
+            #ffe1ec 0%,
+            #ffabc6 45%,
+            #f875a3 100%
+        );
+}
+
+
+.alham-page .story-card {
+    animation:
+        finalReveal 1.2s ease;
+}
+
+
+.alham-page h2 {
+    font-size: 42px;
+
+    color: #df1559;
+}
+
+
+.alham-page .main-line {
+    font-size: 18px;
+
+    font-weight: normal;
+}
+
+
+.alham-page .bangla {
+    color: #c43d70;
+
+    background: #fff1f6;
+}
+
+
+
+/* =====================================================
+   FINAL LETTER
+===================================================== */
+
+.final-letter-page {
+    background:
+        radial-gradient(
+            circle at top,
+            #ffe1eb,
+            #ff91b5
+        );
+}
+
+
+.final-letter-card {
+    width: 90%;
+
+    max-width: 500px;
+
+    background: white;
+
+    padding: 50px 35px;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(100, 20, 60, 0.25);
+
+    animation:
+        cardIn 0.8s ease;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.final-envelope {
+    font-size: 75px;
+
+    animation:
+        floating 2s infinite;
+}
+
+
+.final-letter-card h1 {
+    color: #df1559;
+
+    font-family: Arial, sans-serif;
+
+    margin: 15px 0;
+}
+
+
+.final-letter-card p {
+    color: #666;
+
+    font-family: Arial, sans-serif;
+
+    margin-bottom: 30px;
+}
+
+
+.final-letter-card button {
+    border: none;
+
+    background: #df1559;
+
+    color: white;
+
+    padding: 15px 28px;
+
+    border-radius: 30px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+
+/* =====================================================
+   FINAL MESSAGE
+===================================================== */
+
+.message-page {
+    background:
+        linear-gradient(
+            135deg,
+            #ffeaf1,
+            #ffb5cd
+        );
+
+    overflow-y: auto;
+
+    padding: 20px;
+}
+
+
+.message-card {
+    width: 90%;
+
+    max-width: 600px;
+
+    background: #fffdf9;
+
+    padding: 45px 35px;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(80, 20, 50, 0.2);
+
+    position: relative;
+
+    animation:
+        letterAppear 1s ease;
+
+    z-index: 5;
+}
+
+
+.message-heart {
+    font-size: 55px;
+
+    margin-bottom: 10px;
+}
+
+
+.message-card h1 {
+    color: #b73d68;
+
+    margin-bottom: 25px;
+}
+
+
+.message-card p {
+    color: #5d4c52;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    margin-bottom: 18px;
+}
+
+
+.final-signature {
+    text-align: right;
+
+    color: #b73d68;
+
+    font-size: 20px;
+
+    font-style: italic;
+
+    margin-top: 25px;
+}
+
+
+.floating-final {
+    margin-top: 20px;
+
+    font-size: 25px;
+
+    animation:
+        pulse 1.5s infinite;
+}
+
+
+
+/* =====================================================
+   GIFT PAGE
+===================================================== */
+
+.gift-page {
+    background:
+        radial-gradient(
+            circle at top,
+            #ffe1ec 0%,
+            #ffabc6 45%,
+            #f875a3 100%
+        );
+
+    padding: 20px;
+
+    overflow-y: auto;
+}
+
+
+.gift-card {
+    width: 90%;
+
+    max-width: 560px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #fffdf9;
+
+    padding: 45px 35px;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(100, 20, 60, 0.25);
+
+    animation:
+        cardIn 0.8s ease;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.gift-card::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+.gift-card::-webkit-scrollbar-thumb {
+    background: #e783a5;
+
+    border-radius: 10px;
+}
+
+
+.gift-icon {
+    font-size: 75px;
+
+    margin-bottom: 15px;
+
+    animation:
+        floating 2s infinite ease-in-out;
+}
+
+
+.gift-card h1 {
+    color: #df1559;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 30px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 25px;
+}
+
+
+.gift-main-text {
+    color: #3f3438;
+
+    font-size: 19px;
+
+    line-height: 1.8;
+
+    font-weight: 600;
+
+    margin-bottom: 15px;
+}
+
+
+.gift-sub-text {
+    color: #bd315f;
+
+    background: #fff0f5;
+
+    padding: 10px 14px;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+}
+
+
+.gift-card .story-btn {
+    margin-top: 10px;
+}
+
+
+
+/* =====================================================
+   GIFT GIF
+===================================================== */
+
+.gift-gif-box {
+    width: 100%;
+
+    max-width: 400px;
+
+    min-height: 220px;
+
+    margin: 0 auto 25px;
+
+    padding: 12px;
+
+    background: #fff0f5;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(190, 40, 100, 0.15);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.gift-gif-box img {
+    width: 100%;
+
+    max-height: 380px;
+
+    object-fit: contain;
+
+    border-radius: 14px;
+
+    display: block;
+}
+
+
+
+/* =====================================================
+   ADDRESS FORM
+===================================================== */
+
+.address-form {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+
+    margin: 20px 0 25px;
+}
+
+
+.address-form input,
+.address-form textarea {
+    width: 100%;
+
+    border: 2px solid #f2c5d4;
+
+    background: #fffafc;
+
+    color: #4d3a41;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+    padding: 14px 15px;
+
+    border-radius: 14px;
+
+    outline: none;
+
+    transition: 0.3s;
+
+    resize: vertical;
+}
+
+
+.address-form input:focus,
+.address-form textarea:focus {
+    border-color: #df1559;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(223, 21, 89, 0.08);
+}
+
+
+.address-form input::placeholder,
+.address-form textarea::placeholder {
+    color: #b88b9b;
+}
+
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes pulse {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+}
+
+
+@keyframes floating {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
+
+
+@keyframes cardIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+@keyframes letterAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px)
+            rotate(-3deg);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            rotate(-1deg);
+    }
+
+}
+
+
+@keyframes finalReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+
+}
+
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .HUMAYRA MIM{
+        font-size: 55px;
+
+        letter-spacing: 9px;
+    }
+
+
+    .letter-note {
+        width: 340px;
+
+        max-width: 92%;
+    }
+
+
+    .letter-body {
+        padding:
+            16px 20px 13px;
+
+        font-size: 12px;
+
+        line-height: 1.5;
+    }
+
+
+    .letter-top {
+        font-size: 11px;
+    }
+
+
+    .envelope {
+        width: 250px;
+
+        height: 160px;
+    }
+
+
+    .envelope-front {
+        border-left-width: 125px;
+
+        border-right-width: 125px;
+
+        border-bottom-width: 90px;
+    }
+
+
+    .flap {
+        border-left-width: 125px;
+
+        border-right-width: 125px;
+
+        border-top-width: 95px;
+    }
+
+
+    .seal {
+        left: 99px;
+
+        top: 65px;
+    }
+
+
+    .inside-letter {
+        width: 210px;
+
+        height: 130px;
+
+        left: 20px;
+    }
+
+
+    .click-text {
+        font-size: 13px;
+    }
+
+
+    /* STORY GIF */
+
+    .story-emoji {
+        width: 300px;
+
+        height: 300px;
+
+        margin-bottom: 9px;
+    }
+
+
+    #storyEmojiFallback {
+        font-size: 65px;
+    }
+
+
+    /* STORY CARD */
+
+    .story-card {
+        padding:
+            30px 22px;
+
+        max-height: 92vh;
+    }
+
+
+    .story-card h2 {
+        font-size: 24px;
+
+        margin-bottom: 20px;
+    }
+
+
+    /* ENGLISH */
+
+    .main-line {
+        font-size: 16px;
+
+        line-height: 1.7;
+
+        color: #303030;
+
+        margin-bottom: 6px;
+    }
+
+
+    /* BANGLA */
+
+    .bangla {
+        font-size: 15px;
+
+        line-height: 1.8;
+
+        color: #c43d70;
+
+        background: #fff1f6;
+
+        padding: 7px 10px;
+
+        border-radius: 9px;
+
+        margin-bottom: 20px;
+    }
+
+
+    /* FINAL QUESTION */
+
+    .final-question .story-card h2 {
+        font-size: 31px;
+    }
+
+
+    .final-question .main-line {
+        font-size: 22px;
+    }
+
+
+    .final-question .bangla {
+        font-size: 16px;
+
+        color: #ffb6cd;
+    }
+
+
+    /* FINAL LETTER */
+
+    .final-letter-card {
+        padding:
+            40px 25px;
+    }
+
+
+    /* FINAL MESSAGE */
+
+    .message-card {
+        padding:
+            35px 25px;
+    }
+
+
+    .message-card p {
+        font-size: 16px;
+
+        line-height: 1.7;
+    }
+
+
+    /* =================================================
+       GIFT MOBILE
+    ================================================= */
+
+    .gift-page {
+        padding: 15px;
+    }
+
+
+    .gift-card {
+        width: 94%;
+
+        max-height: 92vh;
+
+        padding:
+            35px 22px;
+
+        border-radius: 25px;
+    }
+
+
+    .gift-icon {
+        font-size: 60px;
+    }
+
+
+    .gift-card h1 {
+        font-size: 24px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .gift-main-text {
+        font-size: 16px;
+
+        line-height: 1.8;
+    }
+
+
+    .gift-sub-text {
+        font-size: 14px;
+
+        line-height: 1.8;
+    }
+
+
+    .gift-gif-box {
+        min-height: 160px;
+
+        padding: 8px;
+    }
+
+
+    .gift-gif-box img {
+        max-height: 300px;
+    }
+
+
+    .address-form input,
+    .address-form textarea {
+        font-size: 14px;
+
+        padding: 13px;
+    }
+
+
+    /* =================================================
+       MOBILE SIDE DECORATION
+    ================================================= */
+
+    .decorative-bg-text {
+        font-size: 7px;
+
+        letter-spacing: 0.8px;
+
+        opacity: 0.16 !important;
+    }
+
+}
+/* =====================================================
+   CONFESSION AUTO SCROLL INDICATOR
+===================================================== */
+
+.confession-scroll-indicator {
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 14px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 4px;
+
+    padding: 8px 16px;
+
+    border-radius: 25px;
+
+    background: rgba(223, 21, 89, 0.92);
+
+    color: #ffffff;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+    box-shadow:
+        0 8px 20px
+        rgba(223, 21, 89, 0.28);
+
+    z-index: 50;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+
+.confession-scroll-indicator.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    animation:
+        confessionScrollBounce 1.4s infinite ease-in-out;
+}
+
+
+.confession-scroll-arrow {
+    font-size: 18px;
+
+    line-height: 1;
+
+    animation:
+        confessionArrowMove 1.1s infinite ease-in-out;
+}
+
+
+.confession-scroll-text {
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+}
+
+
+@keyframes confessionScrollBounce {
+
+    0%,
+    100% {
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            translateY(-4px);
+    }
+
+}
+
+
+@keyframes confessionArrowMove {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(5px);
+    }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .confession-scroll-indicator {
+
+        bottom: 10px;
+
+        padding:
+            7px 13px;
+
+    }
+
+    .confession-scroll-arrow {
+        font-size: 17px;
+    }
+
+}
+/* =====================================================
+   GIFT REVEAL PAGE
+===================================================== */
+
+.gift-reveal-page {
+    background:
+        radial-gradient(
+            circle at top,
+            #ffe1ec 0%,
+            #ffabc6 45%,
+            #f875a3 100%
+        );
+
+    padding: 20px;
+}
+
+
+.gift-reveal-card {
+    width: 90%;
+
+    max-width: 500px;
+
+    background: #fffdf9;
+
+    padding: 45px 30px;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(100, 20, 60, 0.25);
+
+    animation:
+        cardIn 0.8s ease;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.gift-reveal-icon {
+    font-size: 75px;
+
+    margin-bottom: 15px;
+
+    animation:
+        floating 2s infinite ease-in-out;
+}
+
+
+.gift-reveal-card h1 {
+    color: #df1559;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 30px;
+
+    margin-bottom: 18px;
+}
+
+
+.gift-reveal-card p {
+    color: #666;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   ADDRESS PAGE
+===================================================== */
+
+.address-page {
+    background:
+        radial-gradient(
+            circle at top,
+            #ffe1ec 0%,
+            #ffabc6 45%,
+            #f875a3 100%
+        );
+
+    padding: 20px;
+
+    overflow-y: auto;
+}
+
+
+.address-card {
+    width: 90%;
+
+    max-width: 560px;
+
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    background: #fffdf9;
+
+    padding: 35px 30px;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(100, 20, 60, 0.25);
+
+    animation:
+        cardIn 0.8s ease;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+/* =====================================================
+   ADDRESS GIF / IMAGE
+===================================================== */
+
+.address-gif-box {
+    width: 100%;
+
+    max-width: 400px;
+
+    margin: 0 auto 22px;
+
+    padding: 10px;
+
+    background: #fff0f5;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(190, 40, 100, 0.15);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.address-gif-box img {
+    width: 100%;
+
+    max-height: 350px;
+
+    object-fit: contain;
+
+    border-radius: 15px;
+
+    display: block;
+}
+
+
+.address-card h1 {
+    color: #df1559;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 27px;
+
+    margin-bottom: 15px;
+}
+
+
+.address-main-text {
+    color: #5d4c52;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    margin-bottom: 10px;
+}
+
+
+.address-form {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+
+    margin:
+        18px 0 15px;
+}
+
+
+.address-form textarea {
+    width: 100%;
+
+    border:
+        2px solid #f2c5d4;
+
+    background: #fffafc;
+
+    color: #4d3a41;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+    padding: 14px 15px;
+
+    border-radius: 14px;
+
+    outline: none;
+
+    resize: vertical;
+
+    transition: 0.3s;
+}
+
+
+.address-form textarea:focus {
+    border-color: #df1559;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(223, 21, 89, 0.08);
+}
+
+
+.address-form textarea::placeholder {
+    color: #b88b9b;
+}
+
+
+.address-warning {
+    color: #c23d68;
+
+    background: #fff0f5;
+
+    padding: 12px 14px;
+
+    border-radius: 12px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    line-height: 1.7;
+
+    margin-top: 12px;
+}
+
+
+.address-small-note {
+    color: #8b6a76;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    margin-top: 10px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .gift-reveal-card {
+        width: 94%;
+
+        padding:
+            35px 22px;
+
+        border-radius: 25px;
+    }
+
+
+    .gift-reveal-icon {
+        font-size: 60px;
+    }
+
+
+    .gift-reveal-card h1 {
+        font-size: 25px;
+    }
+
+
+    .address-page {
+        padding: 15px;
+    }
+
+
+    .address-card {
+        width: 94%;
+
+        max-height: 92vh;
+
+        padding:
+            28px 20px;
+
+        border-radius: 25px;
+    }
+
+
+    .address-gif-box {
+        margin-bottom: 18px;
+    }
+
+
+    .address-gif-box img {
+        max-height: 280px;
+    }
+
+
+    .address-card h1 {
+        font-size: 23px;
+    }
+
+
+    .address-main-text {
+        font-size: 14px;
+
+        line-height: 1.8;
+    }
+
+
+    .address-form textarea {
+        font-size: 14px;
+    }
+
+
+    .address-warning {
+        font-size: 13px;
+    }
+
+}
+/* =====================================================
+   GIFT BUTTONS - BEAUTIFUL & CLEAR
+===================================================== */
+
+.gift-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 280px;
+    padding: 15px 28px;
+
+    margin-top: 25px;
+
+    border: none;
+    border-radius: 50px;
+
+    background: linear-gradient(135deg, #ff4f81, #ff7aa2);
+    color: white;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(255, 79, 129, 0.30),
+        0 0 0 3px rgba(255, 255, 255, 0.35);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.gift-btn:hover {
+    transform: translateY(-4px) scale(1.03);
+
+    box-shadow:
+        0 12px 28px rgba(255, 79, 129, 0.40),
+        0 0 0 4px rgba(255, 255, 255, 0.45);
+}
+
+.gift-btn:active {
+    transform: scale(0.97);
+}
+
+
+/* =====================================================
+   OPEN MY GIFT BUTTON
+===================================================== */
+
+.open-gift-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 230px;
+    padding: 15px 32px;
+
+    margin-top: 22px;
+
+    border: none;
+    border-radius: 50px;
+
+    background: linear-gradient(135deg, #ff4f81, #ff6f91);
+    color: white;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(255, 79, 129, 0.30),
+        0 0 0 3px rgba(255, 255, 255, 0.35);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.open-gift-btn:hover {
+    transform: translateY(-4px) scale(1.04);
+
+    box-shadow:
+        0 12px 28px rgba(255, 79, 129, 0.42),
+        0 0 0 4px rgba(255, 255, 255, 0.45);
+}
+
+.open-gift-btn:active {
+    transform: scale(0.96);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .gift-btn {
+        min-width: 0;
+        width: 88%;
+        max-width: 330px;
+
+        padding: 14px 20px;
+
+        font-size: 13px;
+        letter-spacing: 0.7px;
+    }
+
+    .open-gift-btn {
+        min-width: 0;
+        width: 75%;
+        max-width: 270px;
+
+        padding: 14px 20px;
+
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+}
+/* =====================================================
+   ADDRESS PAGE GIF
+===================================================== */
+
+.address-gif {
+    display: block;
+
+    width: 180px;
+    height: 180px;
+
+    object-fit: cover;
+
+    margin: 0 auto 18px;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.15),
+        0 0 0 4px rgba(255, 255, 255, 0.7);
+}
+
+
+/* =====================================================
+   IMPORTANT ADDRESS NOTICE
+===================================================== */
+
+.address-notice {
+    width: 100%;
+    max-width: 430px;
+
+    margin: 22px auto 0;
+    padding: 15px 18px;
+
+    box-sizing: border-box;
+
+    border-radius: 16px;
+
+    background: rgba(255, 245, 248, 0.95);
+
+    border: 1px solid rgba(255, 105, 145, 0.35);
+
+    color: #7a4052;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 12px;
+    line-height: 1.6;
+
+    text-align: center;
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.address-notice strong {
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .address-gif {
+        width: 145px;
+        height: 145px;
+
+        margin-bottom: 15px;
+    }
+
+    .address-notice {
+        width: 92%;
+
+        padding: 13px 14px;
+
+        font-size: 11px;
+    }
+
+    .address-notice strong {
+        font-size: 12px;
+    }
+}
+/* =====================================================
+   PAGE 16 - NO BUTTON MAGIC
+===================================================== */
+
+.story-card .runaway-no {
+    position: relative;
+
+    font-size: 10px !important;
+    padding: 7px 13px !important;
+
+    min-width: auto !important;
+
+    border-radius: 20px;
+
+    opacity: 0.9;
+
+    z-index: 20;
+}
+
+.page16-hint {
+    width: 90%;
+    max-width: 420px;
+
+    margin: 12px auto 4px;
+
+    text-align: center;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    color: rgba(90, 45, 60, 0.75);
+
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.page16-hint strong {
+    color: #d94f78;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .page16-hint {
+        font-size: 10px;
+        line-height: 1.55;
+    }
+
+    .story-card .runaway-no {
+        font-size: 9px !important;
+        padding: 6px 11px !important;
+    }
+}
+/* =====================================================
+   TAP HERE — INSIDE ENVELOPE
+   ===================================================== */
+
+.envelope-container {
+    position: relative;
+}
+
+.envelope-container::before {
+    content: "👆 TAP HERE";
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    color: #7b1fa2;
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+    white-space: nowrap;
+    pointer-events: none;
+
+    z-index: 100;
+
+    text-shadow:
+        0 1px 2px rgba(255, 255, 255, 0.9),
+        0 2px 5px rgba(74, 20, 90, 0.35);
+
+    animation: tapHereInside 1.2s ease-in-out infinite;
+}
+
+
+
+/* =====================================================
+   TAP HERE ANIMATION
+   ===================================================== */
+
+@keyframes tapHereInside {
+
+    0%, 100% {
+        opacity: 0.65;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.08);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+    .envelope-container::before {
+        font-size: 14px;
+        letter-spacing: 0.8px;
+    }
+
+}
